@@ -1,0 +1,24 @@
+Day 1:
+
+on submit - validate 
+----------------------
+toate inputurile completate
+parola === confirm password si min 6 char, max 10 char
+email = format tip email
+checkboxurile - checked
+username = 6 char min
+eroare pe inputul cu probleme (color: red)
+
+on save
+----------------------
+if (validate)
+
+user {
+    id: GUID,
+    userName: '',
+    userPwd: '',
+    userEmail: ''
+}
+
+parola - encripted cu algoritmul SHA256
+
