@@ -20,5 +20,38 @@ user {
     userEmail: ''
 }
 
-parola - encripted cu algoritmul SHA256
+Daca Signup valid > redirect Login (to do de aici)
+
+Day 2: 
+
+Login:
+
+Request la backend sa aduc toate datele
+Iterare dbjson/users 
+Scoatere user (obiect din array) in caz ca username/pass coincid
+Daca nu exista user - afiseaza eroare sub form ca user nu exista sau parola este incorecta
+Dupa ce s-a gasit user, baga in localStorage
+Redirect spre dashboard (componenta)
+
+Day 3: 
+
+o pagina cu lista publicatiilor
+fiecare item din lista respectiva afiseaza nume publicatie si data aparitiei
+si are un buton, "Details"
+cand apesi pe "Details"
+mergi pe pagina de detalii a publicatiei
+unde vezi toate detaliile
+despre publicatie
+si daca a fost marcata cu "allowReview"(sau cum se numea booleanul ala) o sa se poata lasa reviewuri si o sa se poata da stele
+
+Router - check how to dymamic stuff
+Details page: request backend pentru detaliul respectiva
+
+
+Remake cu Router
+Form pentru autori:
+name / date of birth / photo / select > prepopulat cu nume de publisheri (on save sa ramana in baza de date id-ul publisherului, nu numele) / allow reviews
+
+
+
 

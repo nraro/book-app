@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Signup.css";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
+import { withRouter } from "react-router-dom";
 
 // Added initialState for form reset
 const initialState = {
@@ -19,8 +20,27 @@ const initialState = {
   userOtherCheckboxError: ""
 };
 
-export default class Singup extends Component {
-  state = initialState;
+function postData(user, navigator) {
+  var http = new XMLHttpRequest();
+  var url = "http://localhost:3000/users";
+  http.open("POST", url, true);
+
+  //Send the proper header information along with the request
+  http.setRequestHeader("Content-type", "application/json");
+
+  http.onreadystatechange = function() {
+    console.log(http.readyState);
+    console.log(http.status);
+    //Call a function when the state changes.
+    if (http.readyState == 4 && (http.status == 200 || http.status == 201)) {
+      navigator.push("/login");
+    }
+  };
+  http.send(JSON.stringify(user));
+}
+
+class Singup extends Component {
+  state = { ...initialState };
 
   // Check if field is checkbox, if yes return 'checked' else return the actual value
   handleChange = event => {
@@ -45,7 +65,6 @@ export default class Singup extends Component {
       nameError = "Name cannot be blank!";
     } else if (this.state.userFullName.length < 6) {
       nameError = "Full name must contain at least 6 characters";
-      // console.log(this);
     }
 
     if (!this.state.userEmailAddress.includes("@")) {
@@ -99,7 +118,7 @@ export default class Singup extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const isValid = this.validate();
-    const randomNumber = Math.floor(Math.random() * 100) + 12;
+    const randomNumber = uuidv4();
     this.state.id = randomNumber;
     const user = {
       id: this.state.id,
@@ -111,35 +130,12 @@ export default class Singup extends Component {
 
     if (isValid) {
       this.setState(initialState);
-      console.log(user);
+      postData(user, this.props.history);
     }
   };
 
-  // getFullName = e => {
-  //   this.setState({
-  //     userFullName: e.target.value
-  //   });
-  // };
-
-  // getEmailAddress = e => {
-  //   this.setState({
-  //     userEmailAddress: e.target.value
-  //   });
-  // };
-
-  // getPassword = e => {
-  //   this.setState({
-  //     userPassword: e.target.value
-  //   });
-  // };
-
-  // getConfirmPassword = e => {
-  //   this.setState({
-  //     userConfirmPassword: e.target.value
-  //   });
-  // };
-
   render() {
+    console.log(this.props);
     return (
       <div>
         <form className="form" onSubmit={this.handleSubmit}>
@@ -179,6 +175,7 @@ export default class Singup extends Component {
           <div>
             <input
               name="userCheckbox"
+              checked={this.state.userCheckbox}
               onChange={this.handleChange}
               type="checkbox"
             />
@@ -188,6 +185,7 @@ export default class Singup extends Component {
           <div>
             <input
               name="userOtherCheckbox"
+              checked={this.state.userOtherCheckbox}
               onChange={this.handleChange}
               type="checkbox"
             />
@@ -200,3 +198,5 @@ export default class Singup extends Component {
     );
   }
 }
+
+export default withRouter(Singup);

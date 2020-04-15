@@ -1,6 +1,105 @@
 {
-  "authors": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "books": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "tbd": { "name": "typicode" },
-  "users": []
+  "authors": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "publishers": [
+    {
+      "id": "971fa075-015d-4e67-95ba-b38dafb7d319",
+      "pubName": "Publication",
+      "pubDescription": "Description of publication",
+      "pubYear": "1998",
+      "pubCeo": "Cornel",
+      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
+      "pubCeoImg": "C:\\fakepath\\da.png"
+    },
+    {
+      "id": "755aa5bc-dda4-4e44-b26b-fd8cb3f71069",
+      "pubName": "Another publication",
+      "pubDescription": "Another description",
+      "pubYear": "2002",
+      "pubCeo": "Pompiliu",
+      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
+      "pubCeoImg": "C:\\fakepath\\da.png"
+    },
+    {
+      "id": "316da49c-0373-4254-9648-3374c42270bd",
+      "pubName": "Cornelus",
+      "pubDescription": "Descriere",
+      "pubYear": "2006",
+      "pubCeo": "Agamemnon",
+      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
+      "pubCeoImg": "C:\\fakepath\\da.png"
+    },
+    {
+      "id": "04f31d19-badf-446c-802e-597de5e3e14a",
+      "pubName": "odadsada",
+      "pubDescription": "da",
+      "pubYear": "2009",
+      "pubCeo": "Cornelus",
+      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
+      "pubCeoImg": "C:\\fakepath\\da.png",
+      "publisherDate": "2020-03-01"
+    },
+    {
+      "id": "ce598ba9-0eb9-4f19-8d49-4dc74c75cfd1",
+      "pubName": "Testache",
+      "pubDescription": "descriere",
+      "pubYear": "2016",
+      "pubCeo": "Cornelus",
+      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
+      "pubCeoImg": "C:\\fakepath\\da.png",
+      "publisherDate": "2020-01-08"
+    },
+    {
+      "id": "b398e347-58d4-4715-88bd-55617bcb490c",
+      "pubName": "asdads",
+      "pubDescription": "adadasda",
+      "pubCeo": "asdasd",
+      "pubLogo": "C:\\fakepath\\14203314_1176896222381782_8702225083548177232_n.jpg",
+      "pubCeoImg": "C:\\fakepath\\da.png",
+      "publisherDate": "2222-02-13",
+      "publisherChk": true
+    },
+    {
+      "id": "465cfb57-9af8-4e72-a676-b6dd0bd3f80a",
+      "pubName": "nume",
+      "pubDescription": "descriere",
+      "pubCeo": "Cornel",
+      "pubLogo": "https://via.placeholder.com/150",
+      "pubCeoImg": "https://via.placeholder.com/300",
+      "publisherDate": "2222-02-13",
+      "publisherChk": true
+    }
+  ],
+  "users": [
+    {
+      "id": "6fcfd20a-980d-4c66-bdd9-8ccc7b7c0260",
+      "userName": "dadada",
+      "userPassword": "dadada",
+      "userEmail": "da@da"
+    },
+    {
+      "id": "783ab9c7-92f4-4b32-aa7a-af18837435d9",
+      "userName": "dadada",
+      "userPassword": "dadasada",
+      "userEmail": "da@da"
+    },
+    {
+      "id": "1e954111-3083-4a05-bed5-c41231b1e9bf",
+      "userName": "Cornel",
+      "userPassword": "cornel",
+      "userEmail": "cornel@cornel.da"
+    }
+  ]
 }
