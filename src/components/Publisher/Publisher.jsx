@@ -21,7 +21,7 @@ function postData(publication, navigator) {
   http.send(JSON.stringify(publication));
 }
 
-function getPublicationToBeEdited(cb) {
+function getPublicationToBeEdited(cb, id) {
   var xhr = new XMLHttpRequest();
 
   xhr.addEventListener("load", () => {
@@ -36,7 +36,7 @@ function getPublicationToBeEdited(cb) {
     }
   };
 
-  xhr.open("GET", "http://localhost:3000/publishers/", console.log(this));
+  xhr.open("GET", "http://localhost:3000/publishers/" + id);
 
   xhr.send();
 }
@@ -138,78 +138,24 @@ class Publisher extends Component {
 
   componentDidMount() {
     getPublicationToBeEdited((editPublication) => {
+      console.log(editPublication);
       this.setState(
         {
           publication: editPublication,
+          ...editPublication,
+          // pubName: this.state.publication.pubName,
+          // pubDescription: this.state.publication.pubDescription,
+          // pubCeo: this.state.publication.pubCeo,
+          // pubLogo: this.state.publication.pubLogo,
+          // pubCeoImg: this.state.publication.pubCeoImg,
+          // publisherDate: this.state.publication.publisherDate,
+          // publisherChk: this.state.publication.publisherChk,
         },
         () => {
-          console.log(this.props.match.params.id);
-          console.log(this);
-
-          // const exactID = this.props.match.params.id;
-          // const arrayOfID = this.state.publication;
-
-          // const desiredPublication = (exactID, arrayOfID) => {
-          //   for (let i = 0; i < arrayOfID.length; i++) {
-          //     if (arrayOfID[i].id === exactID) {
-          //       console.log(arrayOfID[i]);
-          //       return arrayOfID[i];
-          //     }
-          //   }
-          // };
-
-          // --------------------------------
-
-          // if (this.props.match.params.id) {
-          //   this.setState({
-          //     pubName: this.state.publication.pubName,
-          //     pubDescription: this.state.publication.pubDescription,
-          //     pubCeo: this.state.publication.pubCeo,
-          //     pubLogo: this.state.publication.pubLogo,
-          //     pubCeoImg: this.state.publication.pubCeoImg,
-          //     publisherDate: this.state.publication.publisherDate,
-          //     publisherChk: this.state.publication.publisherChk,
-          //   });
-          // }
+          console.log(this.state);
         }
-        // Remake function with router
-        // () => {
-        //   const currUrl = window.location.pathname;
-        //   const splitUrl = currUrl.split("/");
-        //   const urlID = splitUrl[2];
-        //   // console.log(urlID);
-        //   const search = (urlID, publication) => {
-        //     for (let i = 0; i < publication.length; i++) {
-        //       if (publication[i].id === urlID) {
-        //         return publication[i];
-        //       }
-        //     }
-        //   };
-        //   const resultID = search(urlID, this.state.publication);
-        //   // console.log(resultID);
-        //   this.setState(
-        //     {
-        //       publication: resultID,
-        //     },
-        //     () => {
-        //       if (urlID === resultID.id) {
-        //         console.log("egalite, fraternite");
-        //         // console.log(this.state.publication);
-        //         this.setState({
-        //           pubName: this.state.publication.pubName,
-        //           pubDescription: this.state.publication.pubDescription,
-        //           pubCeo: this.state.publication.pubCeo,
-        //           pubLogo: this.state.publication.pubLogo,
-        //           pubCeoImg: this.state.publication.pubCeoImg,
-        //           publisherDate: this.state.publication.publisherDate,
-        //           publisherChk: this.state.publication.publisherChk,
-        //         });
-        //       }
-        //     }
-        //   );
-        // }
       );
-    });
+    }, this.props.match.params.id);
   }
 
   render() {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Signup.css";
 import { v4 as uuidv4 } from "uuid";
 import { withRouter } from "react-router-dom";
+import { postRequest } from "../../utils/http-utils.js";
 
 // Added initialState for form reset
 const initialState = {
@@ -17,39 +18,39 @@ const initialState = {
   passwordError: "",
   passwordConfirmError: "",
   userCheckboxError: "",
-  userOtherCheckboxError: ""
+  userOtherCheckboxError: "",
 };
 
-function postData(user, navigator) {
-  var http = new XMLHttpRequest();
-  var url = "http://localhost:3000/users";
-  http.open("POST", url, true);
+// function postData(user, navigator) {
+//   var http = new XMLHttpRequest();
+//   var url = "http://localhost:3000/users";
+//   http.open("POST", url, true);
 
-  //Send the proper header information along with the request
-  http.setRequestHeader("Content-type", "application/json");
+//   //Send the proper header information along with the request
+//   http.setRequestHeader("Content-type", "application/json");
 
-  http.onreadystatechange = function() {
-    console.log(http.readyState);
-    console.log(http.status);
-    //Call a function when the state changes.
-    if (http.readyState == 4 && (http.status == 200 || http.status == 201)) {
-      navigator.push("/login");
-    }
-  };
-  http.send(JSON.stringify(user));
-}
+//   http.onreadystatechange = function () {
+//     console.log(http.readyState);
+//     console.log(http.status);
+//     //Call a function when the state changes.
+//     if (http.readyState == 4 && (http.status == 200 || http.status == 201)) {
+//       navigator.push("/login");
+//     }
+//   };
+//   http.send(JSON.stringify(user));
+// }
 
 class Singup extends Component {
   state = { ...initialState };
 
   // Check if field is checkbox, if yes return 'checked' else return the actual value
-  handleChange = event => {
+  handleChange = (event) => {
     const isCheckbox = event.target.type === "checkbox";
 
     this.setState({
       [event.target.name]: isCheckbox
         ? event.target.checked
-        : event.target.value
+        : event.target.value,
     });
   };
 
@@ -107,7 +108,7 @@ class Singup extends Component {
         passwordError,
         passwordConfirmError,
         userCheckboxError,
-        userOtherCheckboxError
+        userOtherCheckboxError,
       });
       return false;
     }
@@ -115,7 +116,7 @@ class Singup extends Component {
     return true;
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const isValid = this.validate();
     const randomNumber = uuidv4();
@@ -124,13 +125,13 @@ class Singup extends Component {
       id: this.state.id,
       userName: this.state.userFullName,
       userPassword: this.state.userPassword,
-      userEmail: this.state.userEmailAddress
+      userEmail: this.state.userEmailAddress,
     };
     // to clear form on valid submit
 
     if (isValid) {
       this.setState(initialState);
-      postData(user, this.props.history);
+      postRequest(user, this.props.history);
     }
   };
 
