@@ -21,25 +21,6 @@ const initialState = {
   userOtherCheckboxError: "",
 };
 
-// function postData(user, navigator) {
-//   var http = new XMLHttpRequest();
-//   var url = "http://localhost:3000/users";
-//   http.open("POST", url, true);
-
-//   //Send the proper header information along with the request
-//   http.setRequestHeader("Content-type", "application/json");
-
-//   http.onreadystatechange = function () {
-//     console.log(http.readyState);
-//     console.log(http.status);
-//     //Call a function when the state changes.
-//     if (http.readyState == 4 && (http.status == 200 || http.status == 201)) {
-//       navigator.push("/login");
-//     }
-//   };
-//   http.send(JSON.stringify(user));
-// }
-
 class Singup extends Component {
   state = { ...initialState };
 
@@ -131,7 +112,13 @@ class Singup extends Component {
 
     if (isValid) {
       this.setState(initialState);
-      postRequest(user, this.props.history);
+      postRequest(
+        (user) => {
+          console.log(user);
+          window.location.assign("http://localhost:3001/login");
+        },
+        { url: "/users", body: user }
+      );
     }
   };
 

@@ -5,6 +5,7 @@ import Login from "./components/Login/Login";
 import Publisher from "./components/Publisher/Publisher";
 import PublicationsList from "./components/PublicationsList/PublicationsList";
 import Publication from "./components/Publication/Publication";
+import Text from "./components/Test/Text";
 
 export default class App extends Component {
   render() {
@@ -27,6 +28,9 @@ export default class App extends Component {
             </Route>
             <Route exact path="/publications-list">
               <PublicationsList />
+            </Route>
+            <Route exact path="/test-route">
+              <Text />
             </Route>
             <Route path="/publication/:id" component={Publication} />
           </Switch>

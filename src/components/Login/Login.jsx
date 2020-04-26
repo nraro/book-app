@@ -1,53 +1,57 @@
 import React, { Component } from "react";
+import { getRequest } from "../../utils/http-utils";
 
-function getData(cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == XMLHttpRequest.DONE) {
-      const userList = JSON.parse(xhr.responseText);
-      cb(userList);
-    }
-  };
-  xhr.open("GET", "http://localhost:3000/users", true);
-  xhr.send(null);
-}
+// function getData(cb) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = function() {
+//     if (xhr.readyState == XMLHttpRequest.DONE) {
+//       const userList = JSON.parse(xhr.responseText);
+//       cb(userList);
+//     }
+//   };
+//   xhr.open("GET", "http://localhost:3000/users", true);
+//   xhr.send(null);
+// }
 
 export default class Login extends Component {
   state = {
-    userName: "",
+    userEmail: "",
     userPassword: "",
-    formError: false
+    formError: false,
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const isCheckbox = event.target.type === "checkbox";
 
     this.setState({
       [event.target.name]: isCheckbox
         ? event.target.checked
-        : event.target.value
+        : event.target.value,
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    getData(userList => {
-      const filteredUsers = userList.filter(userObject => {
-        if (
-          this.state.userName === userObject.userName &&
-          this.state.userPassword === userObject.userPassword
-        ) {
-          console.log(userObject);
-          return userObject;
+    getRequest(
+      (userList) => {
+        const filteredUsers = userList.filter((userObject) => {
+          if (
+            this.state.userEmail === userObject.userEmail &&
+            this.state.userPassword === userObject.userPassword
+          ) {
+            console.log(userObject);
+            return userObject;
+          }
+        });
+        if (filteredUsers.length === 1) {
+          console.log("user was found");
+        } else {
+          console.log("user was not found");
         }
-      });
-      if (filteredUsers.length === 1) {
-        console.log("user found");
-      } else {
-        console.log("user not found");
-      }
-      console.log(filteredUsers);
-    });
+        console.log(filteredUsers);
+      },
+      { url: "/users" }
+    );
   };
 
   render() {
@@ -56,9 +60,9 @@ export default class Login extends Component {
         <form className="form" onSubmit={this.handleSubmit}>
           <h2>Please login</h2>
           <input
-            name="userName"
+            name="userEmail"
             onChange={this.handleChange}
-            value={this.state.userName}
+            value={this.state.userEmail}
             type="text"
             placeholder="Email address"
           />
