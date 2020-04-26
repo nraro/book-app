@@ -93,19 +93,9 @@ class Publisher extends Component {
     // to clear form on valid submit
     console.log(publication);
     if (isValid) {
-      // this.setState(initialState);
-      // postData(publication, this.props.history);
-      postRequest(
-        (publication) => {
-          console.log(publication);
-          window.location.assign("http://localhost:3001/publications-list");
-        },
-        { body: publication, url: "/publishers" }
-      );
-
       if (this.props.match.params.id) {
         putRequest(
-          (publication) => {
+          () => {
             window.location.assign(
               "http://localhost:3001/publication/" + this.props.match.params.id
             );
@@ -114,6 +104,14 @@ class Publisher extends Component {
             body: publication,
             url: "/publishers/" + this.props.match.params.id,
           }
+        );
+      } else {
+        postRequest(
+          (publication) => {
+            console.log(publication);
+            window.location.assign("http://localhost:3001/publications-list");
+          },
+          { body: publication, url: "/publishers" }
         );
       }
     }
