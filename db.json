@@ -15,63 +15,6 @@
   ],
   "publishers": [
     {
-      "id": "971fa075-015d-4e67-95ba-b38dafb7d319",
-      "pubName": "Publication",
-      "pubDescription": "Description of publication",
-      "pubYear": "1998",
-      "pubCeo": "Cornel",
-      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
-      "pubCeoImg": "C:\\fakepath\\da.png"
-    },
-    {
-      "id": "755aa5bc-dda4-4e44-b26b-fd8cb3f71069",
-      "pubName": "Another publication",
-      "pubDescription": "Another description",
-      "pubYear": "2002",
-      "pubCeo": "Pompiliu",
-      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
-      "pubCeoImg": "C:\\fakepath\\da.png"
-    },
-    {
-      "id": "316da49c-0373-4254-9648-3374c42270bd",
-      "pubName": "Cornelus",
-      "pubDescription": "Descriere",
-      "pubYear": "2006",
-      "pubCeo": "Agamemnon",
-      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
-      "pubCeoImg": "C:\\fakepath\\da.png"
-    },
-    {
-      "id": "04f31d19-badf-446c-802e-597de5e3e14a",
-      "pubName": "odadsada",
-      "pubDescription": "da",
-      "pubYear": "2009",
-      "pubCeo": "Cornelus",
-      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
-      "pubCeoImg": "C:\\fakepath\\da.png",
-      "publisherDate": "2020-03-01"
-    },
-    {
-      "id": "ce598ba9-0eb9-4f19-8d49-4dc74c75cfd1",
-      "pubName": "Testache",
-      "pubDescription": "descriere",
-      "pubYear": "2016",
-      "pubCeo": "Cornelus",
-      "pubLogo": "C:\\fakepath\\65375447_10212403880086533_1462773815573479424_n.jpg",
-      "pubCeoImg": "C:\\fakepath\\da.png",
-      "publisherDate": "2020-01-08"
-    },
-    {
-      "id": "b398e347-58d4-4715-88bd-55617bcb490c",
-      "pubName": "asdads",
-      "pubDescription": "adadasda",
-      "pubCeo": "asdasd",
-      "pubLogo": "C:\\fakepath\\14203314_1176896222381782_8702225083548177232_n.jpg",
-      "pubCeoImg": "C:\\fakepath\\da.png",
-      "publisherDate": "2222-02-13",
-      "publisherChk": true
-    },
-    {
       "id": "465cfb57-9af8-4e72-a676-b6dd0bd3f80a",
       "pubName": "nume",
       "pubDescription": "descriere",
@@ -79,6 +22,46 @@
       "pubLogo": "https://via.placeholder.com/150",
       "pubCeoImg": "https://via.placeholder.com/300",
       "publisherDate": "2222-02-13",
+      "publisherChk": true
+    },
+    {
+      "id": "afe7d082-7774-48ce-8fbf-2429b0ae212d",
+      "pubName": "PublisherTest",
+      "pubDescription": "PublisherDescription",
+      "pubCeo": "Cornel",
+      "pubLogo": "https://via.placeholder.com/150",
+      "pubCeoImg": "https://via.placeholder.com/300",
+      "publisherDate": "2020-02-05",
+      "publisherChk": true
+    },
+    {
+      "id": "99d57841-0ecc-470a-846a-650edc0e0049",
+      "pubName": "Cornel",
+      "pubDescription": "Cea mai frumoasa descriere ever",
+      "pubCeo": "Cornel",
+      "pubLogo": "https://via.placeholder.com/150",
+      "pubCeoImg": "https://via.placeholder.com/300",
+      "publisherDate": "2222-02-13",
+      "publisherChk": true
+    },
+    {
+      "id": "b6e08c82-8f8d-4120-ad9d-c426ee716ca2",
+      "pubName": "Cornel",
+      "pubDescription": "Cornelus descriere",
+      "pubCeo": "Dodel",
+      "pubLogo": "https://via.placeholder.com/150",
+      "pubCeoImg": "https://via.placeholder.com/300",
+      "publisherDate": "2020-01-08",
+      "publisherChk": true
+    },
+    {
+      "id": "41d59479-b7f0-4929-93a6-9a11aa5c26cf",
+      "pubName": "Cornel",
+      "pubDescription": "Cornelus descriere",
+      "pubCeo": "Dodel",
+      "pubLogo": "https://via.placeholder.com/150",
+      "pubCeoImg": "https://via.placeholder.com/300",
+      "publisherDate": "2020-01-08",
       "publisherChk": true
     }
   ],

@@ -34,6 +34,13 @@ class PublicationsList extends Component {
   render() {
     return (
       <div>
+        <button
+          onClick={() => {
+            window.location.assign("http://localhost:3001/publisher");
+          }}
+        >
+          Add new publisher
+        </button>
         <ul>
           {this.state.publicationList.map((publicationItem) => {
             return (

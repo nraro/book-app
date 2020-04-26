@@ -1,45 +1,7 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { withRouter } from "react-router-dom";
-
-function postData(publication, navigator) {
-  var http = new XMLHttpRequest();
-  var url = "http://localhost:3000/publishers";
-  http.open("POST", url, true);
-
-  //Send the proper header information along with the request
-  http.setRequestHeader("Content-type", "application/json");
-
-  http.onreadystatechange = function () {
-    console.log(http.readyState);
-    console.log(http.status);
-    //Call a function when the state changes.
-    if (http.readyState == 4 && (http.status == 200 || http.status == 201)) {
-      navigator.push("/publications-list");
-    }
-  };
-  http.send(JSON.stringify(publication));
-}
-
-function getPublicationToBeEdited(cb, id) {
-  var xhr = new XMLHttpRequest();
-
-  xhr.addEventListener("load", () => {
-    console.log(xhr.responseText);
-  });
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == XMLHttpRequest.DONE) {
-      const specifiedPublication = JSON.parse(xhr.responseText);
-      console.log(specifiedPublication);
-      cb(specifiedPublication);
-    }
-  };
-
-  xhr.open("GET", "http://localhost:3000/publishers/" + id);
-
-  xhr.send();
-}
+import { postRequest, getRequest, putRequest } from "../../utils/http-utils";
 
 class Publisher extends Component {
   state = {
@@ -132,30 +94,49 @@ class Publisher extends Component {
     console.log(publication);
     if (isValid) {
       // this.setState(initialState);
-      postData(publication, this.props.history);
+      // postData(publication, this.props.history);
+      postRequest(
+        (publication) => {
+          console.log(publication);
+          window.location.assign("http://localhost:3001/publications-list");
+        },
+        { body: publication, url: "/publishers" }
+      );
+
+      if (this.props.match.params.id) {
+        putRequest(
+          (publication) => {
+            window.location.assign(
+              "http://localhost:3001/publication/" + this.props.match.params.id
+            );
+          },
+          {
+            body: publication,
+            url: "/publishers/" + this.props.match.params.id,
+          }
+        );
+      }
     }
   };
 
   componentDidMount() {
-    getPublicationToBeEdited((editPublication) => {
-      console.log(editPublication);
-      this.setState(
-        {
-          publication: editPublication,
-          ...editPublication,
-          // pubName: this.state.publication.pubName,
-          // pubDescription: this.state.publication.pubDescription,
-          // pubCeo: this.state.publication.pubCeo,
-          // pubLogo: this.state.publication.pubLogo,
-          // pubCeoImg: this.state.publication.pubCeoImg,
-          // publisherDate: this.state.publication.publisherDate,
-          // publisherChk: this.state.publication.publisherChk,
+    if (this.props.match.params.id) {
+      getRequest(
+        (editPublication) => {
+          console.log(editPublication);
+          this.setState(
+            {
+              publication: editPublication,
+              ...editPublication,
+            },
+            () => {
+              console.log(this.state);
+            }
+          );
         },
-        () => {
-          console.log(this.state);
-        }
+        { url: "/publishers/" + this.props.match.params.id }
       );
-    }, this.props.match.params.id);
+    }
   }
 
   render() {
