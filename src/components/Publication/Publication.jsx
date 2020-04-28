@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getRequest } from "../../utils/http-utils";
 
 export default class Publication extends Component {
   state = {
@@ -6,40 +7,16 @@ export default class Publication extends Component {
   };
 
   componentDidMount() {
-    this.getData((desiredPublication) => {
-      this.setState(
-        {
+    getRequest(
+      (desiredPublication) => {
+        this.setState({
           publication: desiredPublication,
-        },
-        () => {
-          console.log(this.state.publication);
-        }
-      );
-    });
-  }
-
-  getData(cb) {
-    // create a new XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    // get a callback when the server responds
-    xhr.addEventListener("load", () => {
-      // update the state of the component with the result here
-      console.log(xhr.responseText);
-    });
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == XMLHttpRequest.DONE) {
-        const specifiedPublication = JSON.parse(xhr.responseText);
-        cb(specifiedPublication);
+        });
+      },
+      {
+        url: "/publishers/" + this.props.match.params.id,
       }
-    };
-    // open the request with the verb and the url
-    xhr.open(
-      "GET",
-      "http://localhost:3000/publishers/" + this.props.match.params.id
     );
-    // send the request
-    xhr.send();
   }
 
   render() {

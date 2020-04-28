@@ -15,53 +15,23 @@
   ],
   "publishers": [
     {
-      "id": "465cfb57-9af8-4e72-a676-b6dd0bd3f80a",
-      "pubName": "Edited2222",
-      "pubDescription": "Publisher",
-      "pubCeo": "Cornel",
-      "pubLogo": "https://via.placeholder.com/150",
-      "pubCeoImg": "https://via.placeholder.com/300",
-      "publisherDate": "2222-02-13",
-      "publisherChk": true
-    },
-    {
-      "id": "afe7d082-7774-48ce-8fbf-2429b0ae212d",
-      "pubName": "PublisherTest",
-      "pubDescription": "PublisherDescription",
-      "pubCeo": "Cornel",
-      "pubLogo": "https://via.placeholder.com/150",
-      "pubCeoImg": "https://via.placeholder.com/300",
-      "publisherDate": "2020-02-05",
-      "publisherChk": true
-    },
-    {
-      "id": "99d57841-0ecc-470a-846a-650edc0e0049",
-      "pubName": "Cornel",
-      "pubDescription": "Cea mai frumoasa descriere ever",
-      "pubCeo": "Cornel",
-      "pubLogo": "https://via.placeholder.com/150",
-      "pubCeoImg": "https://via.placeholder.com/300",
-      "publisherDate": "2222-02-13",
-      "publisherChk": true
-    },
-    {
-      "id": "b6e08c82-8f8d-4120-ad9d-c426ee716ca2",
-      "pubName": "Cornel",
-      "pubDescription": "Cornelus descriere",
+      "id": "1edc142c-1510-4e8c-b6be-18ffe45b9b1f",
+      "pubName": "Dodel",
+      "pubDescription": "O descriere frumoasa",
       "pubCeo": "Dodel",
       "pubLogo": "https://via.placeholder.com/150",
-      "pubCeoImg": "https://via.placeholder.com/300",
-      "publisherDate": "2020-01-08",
+      "pubCeoImg": "https://via.placeholder.com/150",
+      "publisherDate": "2020-02-14",
       "publisherChk": true
     },
     {
-      "id": "41d59479-b7f0-4929-93a6-9a11aa5c26cf",
-      "pubName": "Cornel",
-      "pubDescription": "Cornelus descriere",
-      "pubCeo": "Dodel",
+      "id": "90a7cc71-6da2-47c1-b28b-682bbfc31cc0",
+      "pubName": "Publisher",
+      "pubDescription": "Small description",
+      "pubCeo": "Cornel",
       "pubLogo": "https://via.placeholder.com/150",
-      "pubCeoImg": "https://via.placeholder.com/300",
-      "publisherDate": "2020-01-08",
+      "pubCeoImg": "https://via.placeholder.com/150",
+      "publisherDate": "2019-06-12",
       "publisherChk": true
     }
   ],
@@ -101,6 +71,12 @@
       "userName": "dadada",
       "userPassword": "dadada",
       "userEmail": "da@da"
+    },
+    {
+      "id": "ccc93c2f-21db-472f-a8fc-4df27718f74b",
+      "userName": "Cornel Partinitorul",
+      "userPassword": "123456",
+      "userEmail": "cornel@cornel.cornel"
     }
   ],
   "test": []
